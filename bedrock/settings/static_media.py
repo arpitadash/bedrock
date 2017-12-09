@@ -457,6 +457,7 @@ PIPELINE_CSS = {
     'firefox_new_quantum_common': {
         'source_filenames': (
             'css/firefox/new/quantum/common.scss',
+            'css/mozorg/home/netneutrality-12-2017.scss',
         ),
         'output_filename': 'css/firefox_new_quantum_common-bundle.css',
     },
@@ -612,36 +613,13 @@ PIPELINE_CSS = {
         ),
         'output_filename': 'css/firefox-update-notification-firstrun-whatsnew-bundle.css',
     },
-    'firefox_whatsnew_42': {
-        'source_filenames': (
-            'css/firefox/tracking-protection-animation.less',
-            'css/firefox/whatsnew/whatsnew-42.less',
-        ),
-        'output_filename': 'css/firefox_whatsnew_42-bundle.css',
-    },
-    'firefox_whatsnew_zh_tw_49': {
-        'source_filenames': (
-            'css/firefox/tracking-protection-animation.less',
-            'css/firefox/whatsnew/whatsnew-42.less',
-            'css/firefox/whatsnew/whatsnew-zh-tw-49.less',
-        ),
-        'output_filename': 'css/firefox_whatsnew_zh_tw_49-bundle.css',
-    },
-    'firefox_whatsnew_50': {
+    'firefox_whatsnew': {
         'source_filenames': (
             'css/base/send-to-device.less',
             'css/firefox/horizon/background.less',
-            'css/firefox/whatsnew/whatsnew-50.less',
+            'css/firefox/whatsnew/whatsnew.less',
         ),
-        'output_filename': 'css/firefox_whatsnew_50-bundle.css',
-    },
-    'firefox_whatsnew_54': {
-        'source_filenames': (
-            'css/base/send-to-device.less',
-            'css/firefox/horizon/background.less',
-            'css/firefox/whatsnew/whatsnew-54.less',
-        ),
-        'output_filename': 'css/firefox_whatsnew_54-bundle.css',
+        'output_filename': 'css/firefox_whatsnew-bundle.css',
     },
     'firefox-whatsnew-56': {
         'source_filenames': (
@@ -706,6 +684,7 @@ PIPELINE_CSS = {
             'css/newsletter/moznewsletter-subscribe.less',
             'css/mozorg/home/home-quantum.scss',
             'css/mozorg/home/fundraiser2017.scss',
+            'css/mozorg/home/netneutrality-12-2017.scss',
         ),
         'output_filename': 'css/home_quantum-bundle.css',
     },
@@ -1290,6 +1269,13 @@ PIPELINE_JS = {
         ),
         'output_filename': 'js/firefox_firstrun_quantum-bundle.js',
     },
+    'experiment_firstrun_email_first': {
+        'source_filenames': (
+            'js/base/mozilla-traffic-cop.js',
+            'js/firefox/firstrun/experiment-firstrun-email-first.js',
+        ),
+        'output_filename': 'js/firefox_firstrun_quantum-email_first_experiment-bundle.js',
+    },
     'firefox_firstrun_cliqz_funnelcake': {
         'source_filenames': (
             'js/firefox/firstrun/firstrun-cliqz-funnelcake.js',
@@ -1461,36 +1447,12 @@ PIPELINE_JS = {
         ),
         'output_filename': 'js/firefox_tour_none-bundle.js',
     },
-    'firefox_whatsnew_42': {
-        'source_filenames': (
-            'js/base/uitour-lib.js',
-            'js/base/mozilla-highlight-target.js',
-            'js/firefox/whatsnew/whatsnew-42.js',
-        ),
-        'output_filename': 'js/firefox_whatsnew_42-bundle.js',
-    },
-    'firefox_whatsnew_zh_tw_49': {
-        'source_filenames': (
-            'js/base/uitour-lib.js',
-            'js/base/mozilla-highlight-target.js',
-            'js/firefox/whatsnew/whatsnew-zh-tw-49.js',
-            'js/firefox/whatsnew/whatsnew-zh-tw-49-init.js',
-        ),
-        'output_filename': 'js/firefox_whatsnew_zh_tw_49-bundle.js',
-    },
-    'firefox_whatsnew_50': {
+    'firefox_whatsnew': {
         'source_filenames': (
             'js/base/send-to-device.js',
-            'js/firefox/whatsnew/whatsnew-50.js',
+            'js/firefox/whatsnew/whatsnew.js',
         ),
-        'output_filename': 'js/firefox_whatsnew_50-bundle.js',
-    },
-    'firefox_whatsnew_54': {
-        'source_filenames': (
-            'js/base/send-to-device.js',
-            'js/firefox/whatsnew/whatsnew-54.js',
-        ),
-        'output_filename': 'js/firefox_whatsnew_54-bundle.js',
+        'output_filename': 'js/firefox_whatsnew-bundle.js',
     },
     'firefox-update-notification': {
         'source_filenames': (
@@ -1538,6 +1500,12 @@ PIPELINE_JS = {
             'js/mozorg/home/fundraiser-eoy2017.js',
         ),
         'output_filename': 'js/home-fundraiser-eoy2017-bundle.js',
+    },
+    'netneutrality-12-2017': {
+        'source_filenames': (
+            'js/mozorg/home/netneutrality-12-2017.js',
+        ),
+        'output_filename': 'js/netneutrality-12-2017-bundle.js',
     },
     'history-slides': {
         'source_filenames': (

@@ -303,42 +303,6 @@ def show_38_0_5_firstrun(version):
     return version >= Version('38.0.5')
 
 
-def show_42_whatsnew(version):
-    try:
-        version = Version(version)
-    except ValueError:
-        return False
-
-    return version >= Version('42.0')
-
-
-def show_49_0_whatsnew(version):
-    try:
-        version = Version(version)
-    except ValueError:
-        return False
-
-    return version == Version('49.0')
-
-
-def show_50_whatsnew(version):
-    try:
-        version = Version(version)
-    except ValueError:
-        return False
-
-    return version >= Version('50.0')
-
-
-def show_54_whatsnew(version):
-    try:
-        version = Version(version)
-    except ValueError:
-        return False
-
-    return version >= Version('54.0')
-
-
 def show_56_whatsnew(version, oldversion):
     try:
         version = Version(version)
@@ -434,7 +398,11 @@ class FirstrunView(l10n_utils.LangFilesMixin, TemplateView):
         elif show_56_cliqz_firstrun(locale, version, f):
             template = 'firefox/firstrun/cliqz-funnelcake-119-122.html'
         elif show_57_firstrun(version):
-            template = 'firefox/firstrun/firstrun_quantum.html'
+            variant = self.request.GET.get('v', None)
+            if locale == 'en-US' and variant in ['a', 'b']:
+                template = 'firefox/firstrun/email-first-experiment/index-{0}.html'.format(variant)
+            else:
+                template = 'firefox/firstrun/firstrun_quantum.html'
         elif show_40_firstrun(version):
             template = 'firefox/firstrun/index.html'
         elif show_38_0_5_firstrun(version):
@@ -486,18 +454,8 @@ class WhatsnewView(l10n_utils.LangFilesMixin, TemplateView):
                 template = 'firefox/whatsnew/fx57/whatsnew-57.html'
         elif show_56_whatsnew(version, oldversion):
             template = 'firefox/whatsnew/whatsnew-56.html'
-        elif show_54_whatsnew(version):
-            template = 'firefox/whatsnew/fx54/whatsnew-54.html'
-        elif show_50_whatsnew(version):
-            # zh-TW has locale-specific template: whatsnew-50.zh-TW.html
-            template = 'firefox/whatsnew/whatsnew-50.html'
-        # zh-TW on 49.0 gets a special template
-        elif locale == 'zh-TW' and show_49_0_whatsnew(version):
-            template = 'firefox/whatsnew/whatsnew-zh-tw-49.html'
-        elif show_42_whatsnew(version):
-            template = 'firefox/whatsnew/whatsnew-42.html'
         else:
-            template = 'firefox/australis/whatsnew.html'
+            template = 'firefox/whatsnew/index.html'
 
         # return a list to conform with original intention
         return [template]
